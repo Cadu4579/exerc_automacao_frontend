@@ -1,0 +1,47 @@
+describe('Real Wordd app', () => {
+  it('login - success', () => {
+    cy.visit('http://localhost:3000/')
+    cy.get('#username').type('Heath93')
+    cy.get('#password').type('s3cret')
+    cy.get('[data-test="signin-submit"]').click()
+  })
+
+  it('login fail', () => {
+    cy.visit('http://localhost:3000/')
+    cy.get('#username').type('teste')
+    cy.get('#password').type('test')
+    cy.get('[data-test="signin-submit"]').click()
+    cy.get('.MuiAlert-message')
+})
+
+it('register new user', () => {
+  cy.visit('http://localhost:3000/')
+  cy.get('#username').type('teste')
+  cy.get('#password').type('test')
+  cy.get('[data-test="signin-submit"]').click()
+  cy.get('.MuiAlert-message')
+  cy.get('[data-test="signup"]').click()
+  cy.get('#firstName').type('carlos')
+  cy.get('#lastName').type('joaquim')
+  cy.get('#username').type('cadu7945')
+  cy.get('#password').type('s3cret')
+  cy.get('#confirmPassword').type('s3cret')
+  cy.get('[data-test="signup-submit"]').click()
+})
+
+it('error register new user', () => {
+  cy.visit('http://localhost:3000/')
+  cy.get('#username').type('teste')
+  cy.get('#password').type('test')
+  cy.get('[data-test="signin-submit"]').click()
+  cy.get('.MuiAlert-message')
+  cy.get('[data-test="signup"]').click()
+  cy.get('#firstName').type('carlos')
+  cy.get('#lastName').type('joaquim')
+  cy.get('#username').type('cadu7945')
+  cy.get('#password').type('s3cret')
+  cy.get('#confirmPassword').type('s3c')
+  cy.get('#confirmPassword-helper-text')
+  //cy.get('[data-test="signup-submit"]').click()
+})
+})
