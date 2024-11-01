@@ -11,7 +11,7 @@ describe('Real Wordl app', () => {
     cy.get('[data-test="transaction-create-submit-payment"]').click()
   })
 
-    //Saldo insuficiente mas o app deixa enviar dinheiro mesmo assim. Não aparece mensagem de erro
+    //Saldo insuficiente mas o app deixa enviar dinheiro mesmo assim. Não aparece mensagem de erro  
     it('insuficient balance', () => {
       cy.visit('http://localhost:3000/')
       cy.get('#username').type('cadu7945')
